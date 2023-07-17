@@ -1,0 +1,17 @@
+﻿@model List<Employee>
+<h1 class="text-center font-bold font-mono text-4xl">Employee</h1>
+<ul class="mt-10 px-56">
+    @foreach (var employee in Model)
+    {
+        <li class="p-3 bg-orange-100 border-2 border-solid border-orange-400 rounded-xl mb-2 font-mono text-xl font-bold">
+            @employee.FirstName @employee.FatherName @employee.LastName
+            <div class="flex-justify-end">
+                <a class="text-green-600" asp-action="Details" asp-controller="Employee" asp-route-id="@employee.ID">Детали</a>
+                <a class="text-orange-600" asp-action="EditPost" asp-controller="Employee" asp-route-id="@employee.ID">Изменить</a>
+            </div>
+        </li>
+        
+ 
+    }</ul>
+
+

@@ -1,0 +1,20 @@
+﻿@model Employee
+@{
+    ViewBag.Title = "Редактирование пользователя";
+}
+<form class="px-72" asp-action="EditPost" asp-controller="Employee" asp-route-id="@Model.ID">
+    @Html.HiddenFor(m => m.DivisionID)
+    @Html.HiddenFor(m => m.FirstName)
+    @Html.HiddenFor(m => m.FatherName)
+    @Html.HiddenFor(m => m.TabelNubmer)
+   
+    <div class="form-group">
+        <label class="font-mono text-orange-800 font-bold" asp-for="LastName" class="control-label">Фамилия</label>
+        <input type="text" asp-for="LastName" class="form-control rounded-xl" />
+
+    </div>
+
+    <div class="form-group py-3 flex justify-end">
+        <input type="submit" value="Сохранить" class="btn btn-default px-10 py-3 bg-orange-500 text-white" />
+    </div>
+</form>

@@ -1,0 +1,36 @@
+﻿@model List<Division>
+
+   @* @foreach (var divisions in Model)
+    {
+        <li>
+            @divisions.NameDivision
+        </li>*@
+
+    <h1 class="text-center font-bold font-mono text-4xl">Список отделов</h1>
+      <div class="flex justify-center mb-10">
+    <ul>
+        @foreach (var division in Model.Where(d => d.ParentDivisionsId == null))
+        {
+            <li class="font-mono text-xl text-orange-800 font-bold underline py-2 text-center">
+                @division.NameDivision
+            </li>
+                
+                    @foreach (var divis in Model.Where(d => d.ParentDivisionsId == division.ID).ToList())
+                    {
+                <li class="font-mono text-xl text-orange-800 font-bold underline py-2 text-center">
+                            @divis.NameDivision
+                            <ul>
+                                @foreach (var div in Model.Where(d => d.ParentDivisionsId == divis.ID).ToList())
+                                {
+                            <li class="font-mono text-xl text-orange-800 font-bold underline py-2 text-center">
+                                        @div.NameDivision
+                                    </li>
+                                }
+                            </ul>
+                        </li>
+                    }
+
+        }
+    </ul>
+        </div>
+  
